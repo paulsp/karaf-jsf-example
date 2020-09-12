@@ -1,0 +1,1 @@
+# karaf-myfaces-example
