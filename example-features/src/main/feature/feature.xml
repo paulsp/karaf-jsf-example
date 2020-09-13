@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<features name="karaf-jsf-example-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+    <feature name="karaf-jsf-example-common" version="${project.version}">
+        <bundle>mvn:com.example.karaf.examples/karaf-jsf-example-api/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-jsf-example-provider" version="${project.version}">
+        <feature version="${project.version}">karaf-jsf-example-common</feature>
+        <feature prerequisite="true">scr</feature>
+        <bundle>mvn:com.example.karaf.examples/karaf-jsf-example-provider/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-jsf-example-command" version="${project.version}">
+        <feature prerequisite="true">jndi</feature>
+        <feature version="${project.version}" prerequisite="true">karaf-jsf-example-provider</feature>
+        <bundle>mvn:com.example.karaf.examples/karaf-jsf-example-command/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-jsf-example-common-jsf" version="${project.version}">
+        <feature prerequisite="true">jndi</feature>
+        <feature prerequisite="true">pax-web</feature>
+        <feature prerequisite="true">pax-jsf-support</feature>
+        <feature version="${project.version}" prerequisite="true">karaf-jsf-example-provider</feature>
+        <bundle start="false"> mvn:org.apache.myfaces.core/myfaces-api/${myfaces.version}</bundle>
+        <bundle start="false"> mvn:org.apache.myfaces.core/myfaces-impl/${myfaces.version}</bundle>
+    </feature>
+
+    <feature name="karaf-jsf-example-myfaces" version="${project.version}">
+        <feature version="${project.version}">karaf-jsf-example-common-jsf</feature>
+        <bundle>mvn:com.example.karaf.examples/karaf-jsf-example-myfaces/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-jsf-example-primefaces" version="${project.version}">
+        <feature version="${project.version}">karaf-jsf-example-common-jsf</feature>
+        <bundle start="false">mvn:org.primefaces/primefaces/${primefaces.version}</bundle>
+        <bundle>mvn:com.example.karaf.examples/karaf-jsf-example-primefaces/${project.version}</bundle>
+    </feature>
+
+</features>
