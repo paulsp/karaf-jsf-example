@@ -29,9 +29,20 @@
 
     <groupId>com.example.karaf.examples</groupId>
     <artifactId>karaf-jsf-example</artifactId>
-    <name>Karaf :: Examples :: JSF</name>
     <version>4.2.9-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>Karaf :: Examples :: JSF</name>
+    <description>Apache Karaf Booking example implemented in various JSF frameworks.</description>
+
+    <properties>
+        <karaf.version>4.2.9</karaf.version>
+        <myfaces.version>2.2.12</myfaces.version>
+        <osgi.version>6.0.0</osgi.version>
+        <primefaces.version>5.1</primefaces.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <junit.version>4.13</junit.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -114,13 +125,4 @@
         <module>example-primefaces</module>
     </modules>
 
-    <properties>
-        <karaf.version>4.2.9</karaf.version>
-        <myfaces.version>2.2.12</myfaces.version>
-        <osgi.version>6.0.0</osgi.version>
-        <primefaces.version>5.1</primefaces.version>
-        <slf4j.version>1.7.25</slf4j.version>
-        <junit.version>4.13</junit.version>
-    </properties>
-    <description>Apache Karaf Booking example implemented in various JSF frameworks.</description>
 </project>
