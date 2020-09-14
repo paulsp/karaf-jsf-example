@@ -39,8 +39,8 @@
         <feature prerequisite="true">pax-web</feature>
         <feature prerequisite="true">pax-jsf-support</feature>
         <feature version="${project.version}" prerequisite="true">karaf-jsf-example-provider</feature>
-        <bundle start="false"> mvn:org.apache.myfaces.core/myfaces-api/${myfaces.version}</bundle>
-        <bundle start="false"> mvn:org.apache.myfaces.core/myfaces-impl/${myfaces.version}</bundle>
+        <bundle start="false">mvn:org.apache.myfaces.core/myfaces-api/${myfaces.version}</bundle>
+        <bundle start="false">mvn:org.apache.myfaces.core/myfaces-impl/${myfaces.version}</bundle>
     </feature>
 
     <feature name="karaf-jsf-example-myfaces" version="${project.version}">

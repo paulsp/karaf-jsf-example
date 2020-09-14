@@ -27,14 +27,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Simple implementation of the {@link BookingService} storing the {@link Booking}
- * instances in a list in memory.
+ * Simple implementation of the {@link BookingService} storing the
+ * {@link Booking} instances in a list in memory.
  */
 @Component
 public class BookingServiceMemoryImpl implements BookingService {
 
     private final Map<Long, Booking> bookings = new HashMap<>();
-    
+
     @Activate
     private void activate() {
         Booking booking = new Booking();
