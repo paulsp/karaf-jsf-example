@@ -24,20 +24,7 @@
     <artifactId>karaf-jsf-example-myfaces</artifactId>
     <name>Karaf :: Examples :: JSF :: MyFaces</name>
     <packaging>war</packaging>
-<!--
-    <properties>
-        <bundle.symbolicName>org.ops4j.pax.web.samples.web-jsf</bundle.symbolicName>
-        <bundle.namespace>org.ops4j.pax.web.samples</bundle.namespace>
-        <jsf-myfaces.version>2.2.12</jsf-myfaces.version>
-        <jsf-ri.version>1.2_13</jsf-ri.version>
-        <maven.jetty.plugin.version>6.1.16</maven.jetty.plugin.version>
-        <log4j.version>1.2.13</log4j.version>
--->
-<!--         <tomcat.version>6.0.29</tomcat.version> -->
-<!-- 
-        <asm.bundle.version>3.3_1</asm.bundle.version>
-    </properties>
--->
+
     <!-- Project dependencies -->
     <dependencies>
         <dependency>
@@ -66,13 +53,13 @@
             <artifactId>myfaces-api</artifactId>
             <version>${myfaces.version}</version>
             <scope>provided</scope>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-impl</artifactId>
             <version>${myfaces.version}</version>
             <scope>provided</scope>
-         </dependency>
+        </dependency>
     </dependencies>
 
     <build>
@@ -145,59 +132,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>myfaces</id>
-            <activation>
-                <property>
-                    <name>!jsf</name>
-                </property>
-            </activation>
-            <dependencies>
-            </dependencies>
-        </profile>
-        <profile>
-            <!-- Active adding -Djsf=ri when execute maven goals. -->
-            <id>jsf-ri</id>
-            <activation>
-                <property>
-                    <name>jsf</name>
-                    <value>ri</value>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>javax.faces</groupId>
-                    <artifactId>jsf-api</artifactId>
-                    <version>${jsf-ri.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>javax.faces</groupId>
-                    <artifactId>jsf-impl</artifactId>
-                    <version>${jsf-ri.version}</version>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
-
-    <repositories>
-        <repository>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>apache-maven-snapshots</id>
-            <url>https://people.apache.org/repo/m2-snapshot-repository</url>
-        </repository>
-        <repository>
-            <id>prime-repo</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>https://repository.primefaces.org</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 
 </project>
